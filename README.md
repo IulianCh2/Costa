@@ -1,7 +1,9 @@
 
 <html>
 <head>
-  <title>Oieiingat</title>
+  <meta charset="UTF-8">
+  <title>O iei in Gat</title>
+
   <style>
     body {
       display: flex;
@@ -10,30 +12,37 @@
       align-items: center;
       height: 100vh;
       background: pink;
-      font-family: 'Comic Sans MS', sans-serif;
+      font-family: sans-serif;
       text-align: center;
       overflow: hidden;
     }
 
     h1 {
       color: red;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+    }
+
+    #container {
+      position: relative;
+      width: 300px;
+      height: 150px;
     }
 
     button {
-      font-size: 18px;
-      padding: 10px 20px;
-      margin: 10px;
+      position: absolute;
+      font-size: 20px;
+      padding: 14px 28px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     #yes {
       background-color: #ff4d6d;
       color: white;
-      position: relative;
+      left: 30px;
+      top: 40px;
       z-index: 1;
     }
 
@@ -41,57 +50,62 @@
       background-color: white;
       color: #ff4d6d;
       border: 2px solid #ff4d6d;
-      position: relative;
+      right: 30px;
+      top: 40px;
       z-index: 2;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>O iei in Gat ❤️</h1>
+  <h1>O iei In Gat ❤️</h1>
 
-  <div>
-    <button id="yes">Yes</button>
-    <button id="no">No</button>
+  <div id="container">
+    <button id="yes">YES</button>
+    <button id="no">NO</button>
   </div>
 
   <script>
+    let yesScale = 1;
+    let noScale = 1;
+
     const yesBtn = document.getElementById("yes");
     const noBtn = document.getElementById("no");
 
-    let yesSize = 18;
-    let noSize = 18;
+    noBtn.onclick = function () {
 
-    noBtn.onclick = function() {
+      yesScale += 0.35;
+      noScale -= 0.25;
 
-      // Micșorăm NO
-      noSize -= 2;
-      if (noSize < 5) noSize = 5;
+      if (noScale < 0.15) noScale = 0.15;
 
-      noBtn.style.fontSize = noSize + "px";
-      noBtn.style.padding = (noSize/2) + "px " + noSize + "px";
+      // Mărire YES
+      yesBtn.style.transform = `scale(${yesScale})`;
 
-      // Mărim YES
-      yesSize += 8;
-      yesBtn.style.fontSize = yesSize + "px";
-      yesBtn.style.padding = (yesSize/2) + "px " + yesSize + "px";
+      // Micșorare NO
+      noBtn.style.transform = `scale(${noScale})`;
 
-      // Când YES devine foarte mare
-      if (yesSize > 120) {
-        yesBtn.style.position = "fixed";
-        yesBtn.style.top = "0";
-        yesBtn.style.left = "0";
-        yesBtn.style.width = "100vw";
-        yesBtn.style.height = "100vh";
-        yesBtn.style.fontSize = "50px";
-        yesBtn.innerText = "YOU HAVE NO CHOICE 😈";
-      }
+      // Mutare YES peste NO
+      yesBtn.style.left = noBtn.offsetLeft + "px";
+      yesBtn.style.top = noBtn.offsetTop + "px";
     };
 
-    yesBtn.onclick = function() {
-      alert("Stiam eu ca vrei! 💕");
+    yesBtn.onclick = function () {
+      document.body.innerHTML = `
+        <div style="text-align:center;">
+          <h1 style="color:red;font-size:50px;">
+            Am știut eu! ❤️❤️
+          </h1>
+          <p style="font-size:26px;">
+            Ce iti mai place pula
+          </p>
+        </div>
+         <h1 style="color:red;font-size:50px;">
+      `;
     };
   </script>
 
 </body>
 </html>
+>
