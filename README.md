@@ -96,12 +96,12 @@
         <div style="text-align:center;">
           <h1 style="color:red;font-size:50px;">
             Am știut eu! ❤️❤️
+            Ce iti mai place pula
           </h1>
           <p style="font-size:26px;">
-            Ce iti mai place pula
+            
           </p>
         </div>
-         <h1 style="color:red;font-size:50px;">
       `;
     };
   </script>
