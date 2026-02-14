@@ -89,7 +89,7 @@
     };
 
     yesBtn.onclick = function() {
-      alert("Yay! 💖 I'm so happy! 💕");
+      alert("Stiam eu ca vrei! 💕");
     };
   </script>
 
